@@ -21,11 +21,13 @@ stage('test') {
 steps {
 bat '''
 dir main.py >nul 2>&1 ||exit /b 1 
-junit 'test-reports/*.xml'
-
-
 '''
 }
+}
+stage('Report') {
+    stape {
+        junit 'test-reports/*.xml
+    }
 }
 }
 }
