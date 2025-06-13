@@ -17,6 +17,13 @@ python main.py
 '''
 }
 }
+stage('test') {
+steps {
+bat '''
+testing
+'''
+}
+}
 }
 }
 
