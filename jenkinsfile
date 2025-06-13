@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('install dependencies') {
+            steps {
+                bat '''
+                python3 -m install --upgrade pipe
+                pip3 install -r requirements.txt
+                '''
+            }
+        }
+        stage('Run The code') {
+            steps {
+                bat '''
+                python3 main.py
+                '''
+            }
+        }
+    }
+}
