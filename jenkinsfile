@@ -4,10 +4,10 @@ pipeline {
         stage('install dependencies') {
             agent {
 docker {
-iamge'python:3.14-rc-slim'
+image'python:3.14-rc-slim'
 }
      
-    }
+    
 }       
        stage('Run The code') {
     steps {
