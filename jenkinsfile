@@ -2,20 +2,27 @@ pipeline {
     agent any
     stages {
         stage('install dependencies') {
-            steps {
-                sh '''
-                python3 -m pip install --upgrade pip
-                pip3 install -r requirements.txt
-                '''
-            }
-        }
-        stage('Run The code') {
-            steps {
-                sh '''
-                
-                python main.py
-                '''
-            }
-        }
+    steps {
+        sh '''
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+        '''
+    }
+}
+
+            
+       stage('Run The code') {
+    steps {
+        sh '''
+            . venv/bin/activate
+            python main.py
+        '''
+    }
+}
+
+            
+        
     }
 }
