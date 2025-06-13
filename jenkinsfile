@@ -1,21 +1,26 @@
 pipeline {
     agent { label 'docker-agent' }
+
     stages {
-        stage('install dependencies') {
+        stage('Install Dependencies') {
             agent {
-docker {
-image'python:3.14-rc-slim'
-}
-     
-    
-}       
-       stage('Run The code') {
-    steps {
-       bat ''' 
-            python main.py
-        '''
-    }
-}
-      
+                docker {
+                    image 'python:3.14-rc-slim'
+                }
+            }
+            steps {
+                bat '''
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run The Code') {
+            steps {
+                bat '''
+                    python main.py
+                '''
+            }
+        }
     }
 }
