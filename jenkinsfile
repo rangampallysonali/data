@@ -19,7 +19,9 @@ python main.py
 }
 stage('test') {
 steps {
-echo 'testing'
+bat '''
+test -f build/main.py
+'''
 }
 }
 }
