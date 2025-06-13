@@ -8,13 +8,10 @@ pipeline {
             pip3 install -r requirements.txt
         '''
     }
-}
-
-            
+}       
        stage('Run The code') {
     steps {
-        bat '''
-            
+        bat ''' 
             python main.py
         '''
     }
