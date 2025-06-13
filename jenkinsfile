@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows' }
+    agent { label 'docker-agent' }
     stages {
         stage('install dependencies') {
     steps {
