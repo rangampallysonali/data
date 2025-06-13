@@ -4,9 +4,7 @@ pipeline {
         stage('install dependencies') {
             steps {
                 sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip3 install --upgrade pipe
+                python3 -m install --upgrade pip
                 pip3 install -r requirements.txt
                 '''
             }
@@ -14,7 +12,7 @@ pipeline {
         stage('Run The code') {
             steps {
                 sh '''
-                . venv/bin/activate
+                
                 python3 main.py
                 '''
             }
